@@ -1,17 +1,17 @@
 import os
-import zipfile
-from kivy.app import App
+import zipfile##Импорт архивации
+from kivy.app import App##Импорт киви
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.config import Config
+from kivy.config import Config##Импорт изменения окошка
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.floatlayout import FloatLayout
 
-Config.set('graphics','resizeble','0');
-Config.set('graphics','width','480');
-Config.set('graphics','height','720');
+Config.set('graphics','resizeble','0');##Изминения чтобы окошко не двигалось
+Config.set('graphics','width','480');##Изминения ширина
+Config.set('graphics','height','720');##Изминение высоты
 
 
 class BoxApp(App):
