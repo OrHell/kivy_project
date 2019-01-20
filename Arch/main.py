@@ -1,16 +1,16 @@
 import os
-import zipfile##Импорт архивации
-from kivy.app import App##Импорт киви
+import zipfile
+from kivy.app import App
 from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput##импорт кнопачек
-from kivy.config import Config##Импорт изменения окошка
+from kivy.uix.textinput import TextInput
+from kivy.config import Config
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.floatlayout import FloatLayout
 
-Config.set('graphics','resizeble','0');##Изминения чтобы окошко не двигалось
-Config.set('graphics','width','640');##Изминения ширина
-Config.set('graphics','height','480');##Изминение высоты
+Config.set('graphics','resizeble','0');
+Config.set('graphics','width','640');
+Config.set('graphics','height','480');
 
 class BoxApp(App):
 	def build(self):
@@ -31,7 +31,7 @@ class BoxApp(App):
 		instance = b = print ('Pisa is jopi')
 
 
-	def btn_press(self, instance):##Сам класс архивации
+	def btn_press(self, instance):
 		instance = jungle_zip = zipfile.ZipFile('yes.zip', 'w')
 		jungle_zip.write('C:\\Users\\Mentall\\Desktop\\Project\\Arch\\kim.jpg', compress_type=zipfile.ZIP_DEFLATED)
 		jungle_zip.close()##Конец
@@ -40,7 +40,7 @@ class BoxApp(App):
 	
 		
 	
-	def btn_presss(self, instance):##Сам этот класс разорхивации
+	def btn_presss(self, instance)
 		instance = fantasy_zip = zipfile.ZipFile('yes_two.zip', 'w')
 		for folder, subfolders, files in os.walk('C:\\Users\\Mentall\\Desktop\\Project\\Arch'):
 			for file in files:
