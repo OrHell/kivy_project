@@ -1,7 +1,7 @@
 import os
 import zipfile
  
-fantasy_zip = zipfile.ZipFile('C:\\Users\\Гусев\\Desktop\\Project\\yes.zip', 'w')
+fantasy_zip = zipfile.ZipFile('C:\\Users\\Гусев\\Desktop\\Project\\py_and_txt.zip', 'w')
  
 for folder, subfolders, files in os.walk('C:\\Users\\Гусев\\Desktop\\Project'):
  
