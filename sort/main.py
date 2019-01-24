@@ -22,10 +22,8 @@ class BoxApp(App):
 		bl.add_widget(self.lbl)
 		
 		bl.add_widget(Button(text = "Создать Папки", on_press = self.btn_press))
-		al.add_widget(bl)
-		bl.add_widget(Button(text = "Отсортировать картинки", on_press = self.btn_press2))
-		al.add_widget(bl)
-		bl.add_widget(Button(text = "Отсортировать скрипты", on_press = self.btn_press3))
+		bl.add_widget(Button(text = "Отсортировать картинки", on_press = self.btn_press))
+		bl.add_widget(Button(text = "Отсортировать скрипты", on_press = self.btn_press))
 		al.add_widget(bl)
 		return al
 	
@@ -46,10 +44,7 @@ class BoxApp(App):
 				os.mkdir(folder)
 		self.lbl.text = ('Папки созданы :3')
 
-	def btn_press2(self,instance):
-		pass
-	def btn_press3(self, instance):
-		pass
+		
 
 
 if __name__ == "__main__":##
