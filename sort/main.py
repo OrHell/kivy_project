@@ -1,4 +1,5 @@
-import os
+import glob,os
+import shutil
 import zipfile##Импорт архивации
 from kivy.app import App##Импорт киви
 from kivy.uix.button import Button
@@ -27,13 +28,13 @@ class BoxApp(App):
 		bl.add_widget(self.pb)
 		
 		bl.add_widget(Button(text = "Создать Папки", on_press = self.btn_press))
-		bl.add_widget(Button(text = "Отсортировать картинки", on_press = self.btn_press))
-		bl.add_widget(Button(text = "Отсортировать скрипты", on_press = self.btn_press))
+		bl.add_widget(Button(text = "Отсортировать картинки", on_press = self.btn_press_jpg))
+		bl.add_widget(Button(text = "Сожмать питона", on_press = self.btn_press))
 		al.add_widget(bl)
 		return al
-	
+
 	def btn_press(self,instance):
-		path = 'C:/Users/Гусев/Desktop'
+		path = 'C:/'
 		projectname = 'sort'
 		folders = \
 		['png',
@@ -51,6 +52,26 @@ class BoxApp(App):
 
 		self.lbl.text = ('Папки созданы :3')
 		self.pb.value = 100
+
+	def btn_press_jpg(self,instance):
+		fantasy_zip = zipfile.ZipFile('C:\\sort\\jpg\\jpg.zip', 'w')
+ 
+		for folder, subfolders, files in os.walk('C:\\Users\\Mentall\\Desktop/'):
+ 
+		    for file in files:
+		        if file.endswith('.jpg'):
+		            fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), 'C:\\Users\\Гусев\\Desktop\\'), compress_type = zipfile.ZIP_DEFLATED)
+		 		
+		 
+		fantasy_zip.close()
+
+
+
+		for files in os.listdir("C:/Users/Mentall/Desktop"):
+			if files.endswith(".jpg"):
+				os.remove(os.path.join("C:/Users/Mentall/Desktop",files))
+
+
 			
 
 
