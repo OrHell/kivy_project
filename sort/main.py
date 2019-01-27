@@ -34,7 +34,7 @@ class BoxApp(App):
 		return al
 
 	def btn_press(self,instance):
-		path = 'C:/'
+		path = 'C:\\'
 		projectname = 'sort'
 		folders = \
 		['png',
@@ -53,14 +53,16 @@ class BoxApp(App):
 		self.lbl.text = ('Папки созданы :3')
 		self.pb.value = 100
 
+	
+
 	def btn_press_jpg(self,instance):
-		fantasy_zip = zipfile.ZipFile('C:\\sort\\jpg\\jpg.zip', 'w')
+		fantasy_zip = zipfile.ZipFile('C:/sort/jpg/jpg.zip', 'w')
  
-		for folder, subfolders, files in os.walk('C:\\Users\\Mentall\\Desktop/'):
+		for folder, subfolders, files in os.walk('C:/Users/Mentall/Desktop/'):
  
 		    for file in files:
-		        if file.endswith('.jpg'):
-		            fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), 'C:\\Users\\Гусев\\Desktop\\'), compress_type = zipfile.ZIP_DEFLATED)
+		        if file.endswith('.txt'):
+		            fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file),file), compress_type = zipfile.ZIP_DEFLATED)
 		 		
 		 
 		fantasy_zip.close()
@@ -68,9 +70,12 @@ class BoxApp(App):
 
 
 		for files in os.listdir("C:/Users/Mentall/Desktop"):
-			if files.endswith(".jpg"):
+			if files.endswith(".txt"):
 				os.remove(os.path.join("C:/Users/Mentall/Desktop",files))
+		
 
+		self.lbl.text = ('Архив готов :3')
+		self.pb.value = 100
 
 			
 
