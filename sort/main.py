@@ -28,8 +28,8 @@ class BoxApp(App):
 		bl.add_widget(self.pb)
 		
 		bl.add_widget(Button(text = "Создать Папки", on_press = self.btn_press))
-		bl.add_widget(Button(text = "Отсортировать картинки", on_press = self.btn_press_jpg))
-		bl.add_widget(Button(text = "Сожмать питона", on_press = self.btn_press))
+		bl.add_widget(Button(text = "Сожмать картинки", on_press = self.btn_press_jpg))
+		bl.add_widget(Button(text = "Сожмать питона", on_press = self.btn_press_python))
 		al.add_widget(bl)
 		return al
 
@@ -37,8 +37,7 @@ class BoxApp(App):
 		path = 'C:\\'
 		projectname = 'sort'
 		folders = \
-		['png',
-		'jpg',
+		['picture',
 		'py']
 
 		fullPath = os.path.join(path , projectname)
@@ -54,24 +53,49 @@ class BoxApp(App):
 		self.pb.value = 100
 
 	
-
-	def btn_press_jpg(self,instance):
-		fantasy_zip = zipfile.ZipFile('C:/sort/jpg/jpg.zip', 'w')
+	def btn_press_python(self,instance):
+		fantasy_zip = zipfile.ZipFile('C:/sort/py/py.zip', 'w')
  
-		for folder, subfolders, files in os.walk('C:/Users/Mentall/Desktop/'):
+		for folder, subfolders, files in os.walk('C:/Users/Гусев/Desktop/'):
  
 		    for file in files:
-		        if file.endswith('.txt'):
-		            fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file),file), compress_type = zipfile.ZIP_DEFLATED)
+		        if file.endswith('.py'):
+		             fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), 'C:/Users/Гусев/Desktop/'), compress_type = zipfile.ZIP_DEFLATED)
 		 		
 		 
 		fantasy_zip.close()
 
 
 
-		for files in os.listdir("C:/Users/Mentall/Desktop"):
-			if files.endswith(".txt"):
-				os.remove(os.path.join("C:/Users/Mentall/Desktop",files))
+		for files in os.listdir("C:/Users/Гусев/Desktop"):
+			if files.endswith(".py"):
+				os.remove(os.path.join("C:/Users/ГУсев/Desktop",files))
+		
+
+		self.lbl.text = ('Питон сжат :3')
+		self.pb.value = 100
+
+	def btn_press_jpg(self,instance):
+		fantasy_zip = zipfile.ZipFile('C:/sort/picture/picture.zip', 'w')
+ 
+		for folder, subfolders, files in os.walk('C:/Users/Гусев/Desktop/'):
+ 
+		    for file in files:
+		        if file.endswith('.jpg'):
+		             fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), 'C:/Users/Гусев/Desktop/'), compress_type = zipfile.ZIP_DEFLATED)
+		        if file.endswith('.png'):
+		        	fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), 'C:/Users/Гусев/Desktop/'), compress_type = zipfile.ZIP_DEFLATED)
+		 		
+		 
+		fantasy_zip.close()
+
+
+
+		for files in os.listdir("C:/Users/Гусев/Desktop"):
+			if files.endswith(".jpg"):
+				os.remove(os.path.join("C:/Users/ГУсев/Desktop",files))
+			if files.endswith(".png"):
+				os.remove(os.path.join("C:/Users/ГУсев/Desktop",files))
 		
 
 		self.lbl.text = ('Архив готов :3')
