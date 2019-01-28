@@ -37,7 +37,7 @@ class BoxApp(App):
 		bl.add_widget(Button(text = "Указать путь", on_press = self.btn_press_surce))
 		bl.add_widget(Button(text = "Создать Папки", on_press = self.btn_press))
 		bl.add_widget(Button(text = "Сожмать картинки", on_press = self.btn_press_jpg))
-		bl.add_widget(Button(text = "Сожмать питона", on_press = self.btn_press_python))
+		
 		al.add_widget(bl)
 		return al
 	def btn_press_surce(self, instance):
@@ -65,39 +65,17 @@ class BoxApp(App):
 		self.pb.value = 100
 
 	
-	def btn_press_python(self,instance):
-		kuda  = self.texi.text
-		otkuda  = self.texit.text
-		fantasy_zip = zipfile.ZipFile(kuda, 'w')
- 
-		for folder, subfolders, files in os.walk(otkuda):
- 
-		    for file in files:
-		        if file.endswith('.py'):
-		             fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), otkuda), compress_type = zipfile.ZIP_DEFLATED)
-		 		
-		 
-		fantasy_zip.close()
-
-
-
-		for files in os.listdir(otkuda):
-			if files.endswith(".py"):
-				os.remove(os.path.join(otkuda,files))
-		
-
-		self.lbl.text = ('Питон сжат :3')
-		self.pb.value = 100
-
+	
 	def btn_press_jpg(self,instance):
 		kuda  = self.texi.text
 		otkuda  = self.texit.text
+		raspr  = self.texet.text
 		fantasy_zip = zipfile.ZipFile(kuda, 'w')
  
 		for folder, subfolders, files in os.walk(otkuda):
  
 		    for file in files:
-		        if file.endswith('.jpg'):
+		        if file.endswith(raspr):
 		             fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), otkuda), compress_type = zipfile.ZIP_DEFLATED)
 		        if file.endswith('.png'):
 		        	fantasy_zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder,file), otkuda), compress_type = zipfile.ZIP_DEFLATED)
@@ -108,7 +86,7 @@ class BoxApp(App):
 
 
 		for files in os.listdir(otkuda):
-			if files.endswith(".jpg"):
+			if files.endswith(raspr):
 				os.remove(os.path.join(otkuda,files))
 			if files.endswith(".png"):
 				os.remove(os.path.join(otkuda,files))
