@@ -1,4 +1,6 @@
 # kivy_project
+Install Python: https://www.python.org/downloads/
+
 Steps for install kivy:
 
 1)python -m pip install —upgrade pip wheel setuptools
