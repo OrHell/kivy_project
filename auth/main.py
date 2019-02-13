@@ -1,6 +1,7 @@
 import sys, os
 import time
-import requests
+import requests, bs4
+import webbrowser
 import glob,os
 import shutil
 import zipfile##Импорт архивации
@@ -56,6 +57,7 @@ class BoxApp(App):
 		al.add_widget(bl)
 		return al
 	def btn_press_desh(self,instance):
+	
 		if ((self.texit.text == '2584') and (self.texi.text.endswith('.txt'))):
 			source  = self.texi.text
 			p=open(source, 'r')
@@ -196,6 +198,7 @@ class BoxApp(App):
 				
 			self.pb.value =100
 			self.lbl.text = ('Файл дешифрован :3')
+			webbrowser.open(source)
 			
 		else:
 			self.pb.value =0
@@ -338,6 +341,7 @@ class BoxApp(App):
 
 			self.lbl.text = ('Файл зашифрован :3')
 			self.pb.value = 100
+			webbrowser.open(source)
 		else:
 			self.pb.value =0
 			self.lbl.text = ('Пароль неверен или путь указан неверно :3')
